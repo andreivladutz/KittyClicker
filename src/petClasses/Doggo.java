@@ -20,6 +20,11 @@ public class Doggo extends Animal {
         super(name, miufs);
     }
 
+    public Doggo(String name, int miufs, int hunger, int sleepiness, int playfulness) {
+        super(name, miufs, hunger, sleepiness);
+        this.playfulness = playfulness;
+    }
+
     @Override
     public int receiveMiufs() {
         System.out.println("Petting " + name);
@@ -54,5 +59,9 @@ public class Doggo extends Animal {
             bored = true;
             System.out.println(name + " is bored! Play with it!");
         }
+    }
+
+    public int getPlayfulness() {
+        return playfulness;
     }
 }

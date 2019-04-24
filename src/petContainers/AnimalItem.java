@@ -28,4 +28,29 @@ public final class AnimalItem {
         this.petType = petType;
         this.price = price;
     }
+
+    public AnimalItem(Animal initedPet, int price) {
+        this.initedPet = initedPet;
+
+        if (initedPet instanceof Doggo) {
+            this.petType = Type.DOGGO;
+        }
+        else if (initedPet instanceof Kitty) {
+            this.petType = Type.KITTY;
+        }
+
+        this.price = price;
+    }
+
+    public Animal getPet() {
+        return initedPet;
+    }
+
+    public Type getPetType() {
+        return petType;
+    }
+
+    public int getPrice() {
+        return price;
+    }
 }

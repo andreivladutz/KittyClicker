@@ -14,6 +14,10 @@ public class Kitty extends Animal {
         super(name, miufs);
     }
 
+    public Kitty(String name, int miufs, int hunger, int sleepiness) {
+        super(name, miufs, hunger, sleepiness);
+    }
+
     // a kitty might return miufs or not depending on its mood to be pet
     @Override
     public int receiveMiufs() {

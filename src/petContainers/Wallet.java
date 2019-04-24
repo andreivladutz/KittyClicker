@@ -3,10 +3,18 @@ package petContainers;
 public final class Wallet {
     private static Wallet instance = null;
 
-    public static Wallet getWalletInstance() {
+    public static Wallet getWalletInstance(int initialMiufs) {
         if (instance == null) {
             // the game starts with 10 miufs available
-            instance = new Wallet(10);
+            instance = new Wallet(initialMiufs);
+        }
+
+        return instance;
+    }
+
+    public static Wallet getWalletInstance() throws NullPointerException {
+        if (instance == null) {
+            throw new NullPointerException("The wallet must be initialised first by calling getWalletInstance(int)");
         }
 
         return instance;

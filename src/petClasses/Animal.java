@@ -30,9 +30,11 @@ public abstract class Animal {
         this.miufs = miufs;
     }
 
-    Animal() {
-        this.name = "";
-        this.miufs = 0;
+    Animal(String name, int miufs, int hunger, int sleepiness) {
+        this.name = name;
+        this.miufs = miufs;
+        this.hunger = hunger;
+        this.sleepiness = sleepiness;
     }
 
     public void feed(int food) {
@@ -107,5 +109,9 @@ public abstract class Animal {
 
     public int getSleepiness() {
         return sleepiness;
+    }
+
+    public int getMiufs() {
+        return miufs;
     }
 }

@@ -10,9 +10,9 @@ import java.util.ArrayList;
 public final class LivingRoom {
     private static LivingRoom instance = null;
 
-    public static LivingRoom getLivingRoomInstance(Animal[] defaultPets) {
+    public static LivingRoom getLivingRoomInstance(Animal[] defaultPets, int initialMiufs) {
         if (instance == null) {
-            instance = new LivingRoom(defaultPets);
+            instance = new LivingRoom(defaultPets, initialMiufs);
         }
 
         return instance;
@@ -25,12 +25,17 @@ public final class LivingRoom {
     private ArrayList<Animal> ownedPetsArr;
 
     /*
-        when we init the living room we already have two default pets so we move them in
+        when we init the living room
+            - we already have two default pets so we move them in
+            - progress has already been made and saved to file so we already have some updated pets
+        also the current owned miufs are initialised:
+            - with the default value (the initial one)
+            - or the acquired miufs in the previous session
     */
-    private LivingRoom(Animal[] defaultPets) {
-        ownerWallet = Wallet.getWalletInstance();
+    private LivingRoom(Animal[] defaultPets, int initialMiufs) {
+        ownerWallet = Wallet.getWalletInstance(initialMiufs);
 
-        ownedPetsArr = new ArrayList<Animal>();
+        ownedPetsArr = new ArrayList<>();
 
         for (Animal pet : defaultPets) {
             movePetIn(pet);
@@ -116,7 +121,15 @@ public final class LivingRoom {
         }
 
         // downcasting to doggo
-        ((Doggo) pet).playWith();;
+        ((Doggo) pet).playWith();
+    }
+
+    public ArrayList<Animal> getPetsArr() {
+        return ownedPetsArr;
+    }
+
+    public int getMiufs() {
+        return ownerWallet.getCurrentMiufs();
     }
 
     public void printPets() {
