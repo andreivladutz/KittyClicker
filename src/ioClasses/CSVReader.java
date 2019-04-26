@@ -23,10 +23,13 @@ public class CSVReader {
     // if the FileMotFoundException is encountered
     boolean fileNotFound = false;
 
+    // keeping the filepath of the opened file
+    String openedFilename;
+
     // every line read is parsed with the CSVLine class
     CSVLine lastLine;
 
-    public CSVReader(String filename) {
+    private void openFile(String filename) {
         try {
             in = new BufferedReader(new FileReader(filename));
         }
@@ -35,8 +38,100 @@ public class CSVReader {
         }
     }
 
+    // method for reopening the file after the verification of the file format
+    private void reopenFile() {
+        close();
+        openFile(openedFilename);
+    }
+
+    public CSVReader(String filename) {
+        openFile(filename);
+        openedFilename = filename;
+    }
+
+    // added this method to verify the existence of a file
+    // ended up using another method
     public boolean isFileAvailable() {
         return !fileNotFound;
+    }
+
+
+    private boolean verifyLine(String[] types) {
+        for (String type: types) {
+            if (type.toLowerCase() == "int") {
+                try {
+                    nextInt();
+                }
+                catch (IOException e) {
+                    // doesn't follow the provided format
+                    return false;
+                }
+            }
+            else if (type.toLowerCase() == "long") {
+                try {
+                    nextLong();
+                }
+                catch (IOException e) {
+                    // doesn't follow the provided format
+                    return false;
+                }
+            }
+            else if (type.toLowerCase() == "string") {
+                try {
+                    nextString();
+                }
+                catch (IOException e) {
+                    // doesn't follow the provided format
+                    return false;
+                }
+            }
+        }
+
+        // followed the format
+        return true;
+    }
+
+    // method for verifying the correct format of a file before reading from it.
+    // It receives a string array of types to be checked upon every line
+    // in the file in the exact same order as received
+    public boolean verifyFormat(String[] types) {
+        while (readLine()) {
+            if (!verifyLine(types)) {
+                reopenFile();
+                return false;
+            }
+        }
+
+        reopenFile();
+        // every line in the csv file has a correct format
+        return true;
+    }
+
+    // same as the method above, just accepting more formats
+    public boolean verifyFormat(String[][] typesArr) {
+        while (readLine()) {
+            boolean respectsOneFormat = false;
+
+            // now trying all the possible formats
+            for (String[] lineTypes: typesArr) {
+                // if it respects at least one type of formatting it's ok
+                respectsOneFormat = verifyLine(lineTypes) || respectsOneFormat;
+
+                // found one format that is respected. skipping to the verification of the next line
+                if (respectsOneFormat) {
+                    break;
+                }
+                lastLine.rewindLine();
+            }
+            // it doesn't respect any format
+            if (!respectsOneFormat) {
+                reopenFile();
+                return false;
+            }
+        }
+
+        reopenFile();
+        return true;
     }
 
     /*
@@ -53,7 +148,7 @@ public class CSVReader {
             return false;
         }
 
-        if (line == null) {
+        if (line == null || line == "") {
             return false;
         }
 

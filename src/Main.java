@@ -146,8 +146,20 @@ public class Main {
 
     public static void initPetShop() {
         PetsIOHandler ioHandler = new PetsIOHandler();
-        // the first time we run the program we create the file
-        if (!new File(petShopItemsFilePath).isFile()) {
+
+        String[] lineFormatTypes = {
+                "int", "string", "int", "int"
+        };
+
+        boolean fileExists = new File(petShopItemsFilePath).isFile();
+
+        // the first time we run the program
+        // or if it has the wrong format we create the file
+        if (!fileExists || !(new CSVReader(petShopItemsFilePath)).verifyFormat(lineFormatTypes)) {
+            if (fileExists) {
+                System.out.println("The file is corrupt. Rewriting it with its default values");
+            }
+
             ioHandler.openOut(petShopItemsFilePath, false);
 
             for (AnimalItem petItem: defaultPetItems) {
@@ -178,17 +190,40 @@ public class Main {
 
         ioHandler.closeIn();
 
+        // the pet shop constructor accepts an Animal array so we have to apply conversion from ArrayList<Animal>
         AnimalItem[] petItemsArr = new AnimalItem[petItems.size()];
         petShopInstance = PetShop.getPetShopInstance(petItems.toArray(petItemsArr), livingRoomInstace);
     }
 
     public static void initLivingRoom() {
         PetsIOHandler ioHandler = new PetsIOHandler();
+
+        // the format that accepts kitties
+        String[] lineFormatTypes1 = {
+                "int", "string", "int", "int", "int"
+        };
+        // the format that accepts doggos
+        String[] lineFormatTypes2 = {
+                "int", "string", "int", "int", "int", "int"
+        };
+
+        String[][] lineFormatsArr = {
+                lineFormatTypes2,
+                lineFormatTypes1
+        };
+
+        boolean fileExists = new File(purchasedPetsFilePath).isFile();
+
         /*
          *  check to see if a file with already purchased pets exists
-         *  if a file hasn't been created yet we create one with the default pets
+         *  if a file hasn't been created yet or if it has the wrong format
+         *  we create one with the default pets
          */
-        if (!new File(purchasedPetsFilePath).isFile()) {
+        if (!fileExists || !(new CSVReader(purchasedPetsFilePath)).verifyFormat(lineFormatsArr)) {
+            // file does exist but doesn't respect the correct format
+            if (fileExists) {
+                System.out.println("Your purchasedPets file is corrupt. Rewriting it with the default values");
+            }
             // the file doesn't exist so we create one
             ioHandler.openOut(purchasedPetsFilePath, false);
 
@@ -205,8 +240,11 @@ public class Main {
             ioHandler.closeOut();
         }
 
-        // does the file already exist?
-        if (!new File(ownedMiufsFilePath).isFile()) {
+        String[] miufsCorrectFormat = {"int"};
+        boolean miufsFileExists = new File(ownedMiufsFilePath).isFile();
+
+        // does the file already exist? is it correctly written?
+        if (!miufsFileExists || !(new CSVReader(ownedMiufsFilePath)).verifyFormat(miufsCorrectFormat)) {
             ioHandler.openOut(ownedMiufsFilePath, false);
 
             ioHandler.getOutCSVWriter().writeInt(defaultMiufs, true);

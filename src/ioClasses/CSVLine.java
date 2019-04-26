@@ -38,4 +38,9 @@ public class CSVLine {
 
         return fields[currPos];
     }
+
+    // useful for analyzing a line more than once
+    public void rewindLine() {
+        currPos = 0;
+    }
 }
