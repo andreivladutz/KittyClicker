@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="2D Game With Kitties And Doggos">
+		<meta name="keywords" content="">
+
+		<meta name="author" content="Dinca Vlad Andrei">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Kitty Clicker</title>
+
+		<link href="css/general.css" rel="stylesheet" type="text/css">
+
+
+		<!-- UTILITIES -->
+		<script src="js/utils/mathFunctions.js"></script>
+		<script src="js/utils/promisesUtilities.js"></script>
+		<script src="js/utils/EventEmiter.js"></script>
+		<script src="js/utils/ResourceLoader.js"></script>
+		<script src="js/utils/Animator.js"></script>
+		<script src="js/utils/AStar.js"></script>
+		<script src="js/utils/isTouchDevice.js"></script>
+		<script src="js/utils/InputHandler.js"></script>
+		<script src="js/utils/RESTService.js"></script>
+
+		<!-- MAP CLASSES -->
+		<script src="js/MapClasses/MapParser.js"></script>
+		<script src="js/MapClasses/MapInstance.js"></script>
+		<script src="js/MapClasses/MapRenderer.js"></script>
+		<script src="js/MapClasses/MapLoader.js"></script>
+
+		<!-- PETS CLASSES -->
+		<script src="js/Pet.js"></script>
+
+		<!-- GENERAL CODE -->
+		<script src="js/CanvasManager.js"></script>
+		<script src="js/UI.js"></script>
+		<script src="js/main.js"></script>
+	</head>
+
+	<body onload="main()">
+		<canvas id = "gameCanvas" width="500" height="500"></canvas>
+		<div id="side-menu">
+			<div id="miufs">
+
+			</div>
+			<div id="shop">
+				SHOP
+			</div>
+			<div id="details"><h3>Pet Details:</h3></div>
+		</div>
+
+		<div id="interactions">
+			<div id="feed">Feed</div>
+			<div id="pet">Pet</div>
+			<div id="play">Play With</div>
+		</div>
+	</body>
+</html>
