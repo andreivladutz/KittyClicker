@@ -1,5 +1,6 @@
 package petContainers;
 
+import RESTClasses.InteractionAnswer;
 import petClasses.*;
 import java.util.ArrayList;
 
@@ -25,7 +26,7 @@ public final class LivingRoom {
         return instance;
     }
 
-    Wallet ownerWallet;
+    private Wallet ownerWallet;
 
 
     private int noDoggos, noKitties;
@@ -49,7 +50,7 @@ public final class LivingRoom {
         }
     }
 
-    synchronized public void movePetIn(Animal animalRef) {
+    synchronized void movePetIn(Animal animalRef) {
         ownedPetsArr.add(animalRef);
         animalRef.setId(ownedPetsArr.size() - 1);
 
@@ -67,7 +68,7 @@ public final class LivingRoom {
         }
     }
 
-    synchronized public boolean isInBounds(int id) {
+    synchronized private boolean isInBounds(int id) {
         if (id < 0 || id >= ownedPetsArr.size()) {
             System.out.println("Index is out of bounds!");
 
@@ -77,60 +78,67 @@ public final class LivingRoom {
         return true;
     }
 
-    synchronized public boolean feedPet(int id, int food) {
-        if (!isInBounds(id))
-            return false;
+    synchronized public InteractionAnswer feedPet(int id, int food) {
+        if (!isInBounds(id)) {
+            return new InteractionAnswer(false, "Id is not in bounds.");
+        }
 
         int foodPrice = food / 5;
 
         Animal pet = ownedPetsArr.get(id);
 
         if (pet.isAsleep()) {
-            System.out.println("The pet is asleep. You cannot feed it right now");
+            String answer = "The pet is asleep. You cannot feed it right now";
+            System.out.println(answer);
 
-            return false;
+            return new InteractionAnswer(false, answer);
         }
 
         try {
             ownerWallet.payMiufs(foodPrice);
         }
         catch(Exception e) {
-            System.out.println("Not enough funds!");
+            String answer = "Not enough funds!";
+            System.out.println(answer);
 
-            return false;
+            return new InteractionAnswer(false, answer);
         }
         pet.feed(food);
 
-        return true;
+        return new InteractionAnswer(true, "Pet was fed");
     }
 
-    synchronized public boolean petAnimal(int idx) {
-        if (!isInBounds(idx))
-            return false;
+    synchronized public InteractionAnswer petAnimal(int idx) {
+        if (!isInBounds(idx)) {
+            return new InteractionAnswer(false, "Id is not in bounds.");
+        }
 
         Animal petRef = ownedPetsArr.get(idx);
         int miufs = petRef.pet();
 
         if (miufs > 0) {
-            System.out.println(petRef.getName() + " gave you " + miufs + " miufs");
+            String answer = petRef.getName() + " gave you " + miufs + " miufs";
+            System.out.println(answer);
             ownerWallet.receiveMiufs(miufs);
 
             printMiufs();
-            return true;
+            return new InteractionAnswer(true, answer);
         }
 
-        return false;
+        return new InteractionAnswer(false, petRef.getRefusePettingMessage());
     }
 
-    synchronized public boolean playWithDoggo(int idx) {
-        if (!isInBounds(idx))
-            return false;
+    synchronized public InteractionAnswer playWithDoggo(int idx) {
+        if (!isInBounds(idx)) {
+            return new InteractionAnswer(false, "Id is not in bounds.");
+        }
 
         Animal pet = ownedPetsArr.get(idx);
 
         if (!(pet instanceof Doggo)) {
-            System.out.println("The pet you chose is not a doggo!");
-            return false;
+            String answer = "The pet you chose is not a doggo!";
+            System.out.println(answer);
+            return new InteractionAnswer(false, answer);
         }
 
         // downcasting to doggo
@@ -149,13 +157,10 @@ public final class LivingRoom {
         return ownerWallet.getCurrentMiufs();
     }
 
-    public void printPets() {
-        for (int i = 0; i < ownedPetsArr.size(); i++) {
-            Animal currentPet = ownedPetsArr.get(i);
-            System.out.println(i + ". " + currentPet.getName() + ":");
-            System.out.println("hunger = " + currentPet.getHunger());
-            System.out.println("sleepiness = " + currentPet.getSleepiness() + "\n");
-        }
+    synchronized public void renamePet(int idx, String newName) {
+        Animal pet = ownedPetsArr.get(idx);
+
+        pet.setName(newName);
     }
 
     public void printMiufs() {

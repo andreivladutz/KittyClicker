@@ -19,6 +19,9 @@ public abstract class Animal {
     // the interval in milliseconds at which the sleepiness and hunger are updated
     protected long updateNeedsInterval = 0;
 
+    // this message will be set if an animal refuses to be pet
+    protected String refusePettingMessage = "";
+
     {
         lastNeedsUpdate = System.currentTimeMillis();
     }
@@ -86,17 +89,20 @@ public abstract class Animal {
     // All animals can be asleep or hungry
     public int pet() {
         if (asleep) {
-            System.out.println(name + " is asleep! You cannot pet it right now.");
+            refusePettingMessage = name + " is asleep! You cannot pet it right now.";
+            System.out.println(refusePettingMessage);
 
             return 0;
         }
 
         if (hunger > 0) {
-            System.out.println(name + " is hungry! Feed it first!");
+            refusePettingMessage = name + " is hungry! Feed it first!";
+            System.out.println(refusePettingMessage);
 
             return 0;
         }
 
+        refusePettingMessage = "";
         return receiveMiufs();
     }
 
@@ -134,5 +140,14 @@ public abstract class Animal {
 
     public int getId() {
         return id;
+    }
+
+    public void setName(String name) {
+        System.out.println("RENAMING " + id + " TO " + name);
+        this.name = name;
+    }
+
+    public String getRefusePettingMessage() {
+        return refusePettingMessage;
     }
 }

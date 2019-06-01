@@ -1,6 +1,6 @@
 class Pet {
 	// type = doggo's constant or kitty's constant
-	constructor(name, id, hungry, asleep, type, hunger, sleepiness, playfullness) {
+	constructor(name, id, hungry, asleep, type, hunger, sleepiness, playfullness, color) {
 		this.ctx = CanvasManagerFactory().ctx;
 
 		this.name = name;
@@ -13,12 +13,7 @@ class Pet {
 		this.sleepiness = sleepiness;
 		this.playfullness = playfullness;
 
-		if (this.type === gameObject.KITTYTYPE) {
-			this.color = Pet.WHITE_PET;
-		}
-		else {
-			this.color = Pet.MAROON_PET;
-		}
+		this.color = color;
 
 		this.x = null;
 		this.y = null;
@@ -311,7 +306,7 @@ Pet.SLEEP_FRAME = 3;
 Pet.WHITE_PET = 0;
 Pet.CREAM_PET = 1;
 Pet.MAROON_PET = 2;
-Pet.BLACK_PET = 2;
+Pet.BLACK_PET = 3;
 
 Pet.CHANGE_STATE_INTERVAL = 6000;
 

@@ -24,11 +24,13 @@ public class Kitty extends Animal {
         double mood = Math.random();
 
         if (mood > 0.5) {
-            System.out.println(name + " is not in the mood to be pet!");
+            refusePettingMessage = name + " is not in the mood to be pet!";
+            System.out.println(refusePettingMessage);
             return 0;
         }
         else {
             System.out.println("Petting " + name);
+            refusePettingMessage = "";
             return miufs;
         }
     }

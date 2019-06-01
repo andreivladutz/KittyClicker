@@ -89,6 +89,14 @@ class RESTService {
 
 		this.handleRequest(callback, petAnimalObj);
 	}
+
+	renamePet(callback, petId, name) {
+		console.log("RENAMING petID = " + petId + " to " + name);
+		let renamePetRequestObj = copyObject(RESTService.LINKS[RESTService.RENAME_PET]);
+		renamePetRequestObj.url = "pets/" + petId + renamePetRequestObj.url + name;
+
+		this.handleRequest(callback, renamePetRequestObj);
+	}
 }
 
 
@@ -103,6 +111,7 @@ RESTService.FEED = 6;
 RESTService.PET = 7;
 RESTService.PLAY = 8;
 RESTService.INIT_GAME = 9;
+RESTService.RENAME_PET = 10;
 RESTService.LINKS = [
 	{
 		name: "allPets",
@@ -164,6 +173,12 @@ RESTService.LINKS = [
 		url: "init",
 		verb: "GET"
 	},
+	{
+		name: "rename",
+		itemType: "JSON",
+		url: "/rename/",
+		verb: "POST"
+	}
 ];
 
 RESTService.BASE_LINK = "rest/GameWebService/";

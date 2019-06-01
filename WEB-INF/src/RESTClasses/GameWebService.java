@@ -4,6 +4,7 @@ import petContainers.AnimalItem;
 import petContainers.LivingRoom;
 import petContainers.PetShop;
 
+import javax.print.attribute.standard.Media;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -99,41 +100,40 @@ public class GameWebService {
     @POST
     @Path("/pets/{pet_id}/feed/{food_portion}")
     @Produces(MediaType.APPLICATION_JSON)
-    public String feedPet(@PathParam("pet_id") int petId, @PathParam("food_portion") int foodPortion) {
-        boolean couldFeed;
-
+    public InteractionAnswer feedPet(@PathParam("pet_id") int petId, @PathParam("food_portion") int foodPortion) {
         synchronized (livingRoom) {
-            couldFeed = livingRoom.feedPet(petId, foodPortion);
+            return livingRoom.feedPet(petId, foodPortion);
         }
-
-        return "{\"ok\": " + couldFeed + "}";
     }
 
     // pet animal
     @POST
     @Path("/pets/{pet_id}/pet")
     @Produces(MediaType.APPLICATION_JSON)
-    public String pet(@PathParam("pet_id") int petId) {
-        boolean couldPet;
-
+    public InteractionAnswer pet(@PathParam("pet_id") int petId) {
         synchronized (livingRoom) {
-            couldPet = livingRoom.petAnimal(petId);
+            return livingRoom.petAnimal(petId);
+        }
+    }
+
+    @POST
+    @Path("/pets/{pet_id}/rename/{pet_name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String rename(@PathParam("pet_id") int petId, @PathParam("pet_name") String petName) {
+        synchronized (livingRoom) {
+            livingRoom.renamePet(petId, petName);
         }
 
-        return "{\"ok\": " + couldPet + "}";
+        return "{\"ok\": true}";
     }
 
     // play with doggo
     @POST
     @Path("/pets/{pet_id}/play")
     @Produces(MediaType.APPLICATION_JSON)
-    public String playWithDoggo(@PathParam("pet_id") int petId) {
-        boolean couldPlay;
-
+    public InteractionAnswer playWithDoggo(@PathParam("pet_id") int petId) {
         synchronized (livingRoom) {
-            couldPlay = livingRoom.playWithDoggo(petId);
+            return livingRoom.playWithDoggo(petId);
         }
-
-        return "{\"ok\": " + couldPlay + "}";
     }
 }

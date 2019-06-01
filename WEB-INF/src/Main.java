@@ -16,6 +16,7 @@ import java.util.Scanner;
 import java.io.File;
 
 public class Main extends HttpServlet {
+    static final String basePath = "data";
     static final String purchasedPetsFilePath = "data/purchasedPets.csv";
     static final String ownedMiufsFilePath = "data/ownedMiufs.csv";
     static final String petShopItemsFilePath = "data/petItems.csv";
@@ -73,6 +74,11 @@ public class Main extends HttpServlet {
 
     synchronized public static void initialise() {
         System.out.println("Initialised game state");
+
+        // if the data folder doesn't exist, then create it
+        File f = new File(basePath);
+        f.mkdirs();
+
         // the living room should be inited before the pet shop!
         initLivingRoom();
         initPetShop();
@@ -95,7 +101,7 @@ public class Main extends HttpServlet {
             - updates the status of each pet: hunger, sleepiness, playfulness, etc.
             - writes the status of each pet to file regularly
     */
-    public static void update() {
+    synchronized public static void update() {
         synchronized (livingRoomInstace) {
             livingRoomInstace.updatePets();
         }
@@ -106,78 +112,6 @@ public class Main extends HttpServlet {
 
             writeProgressToFile();
         }
-    }
-
-    public static void textMenu() {
-        System.out.println("Choose option:");
-        System.out.println("1.See pets details");
-        System.out.println("2.Feed pet");
-        System.out.println("3.Pet animal");
-        System.out.println("4.Play with doggo");
-        System.out.println("5.Show miufs");
-        System.out.println("6.Buy pets");
-
-        Scanner in = new Scanner(System.in);
-
-        int option = in.nextInt();
-
-        switch(option) {
-            case 1:
-                printPets(); break;
-            case 2: {
-                System.out.println("Insert the index of the pet:");
-
-                int idx = in.nextInt();
-
-                System.out.println("Choose food portion");
-                System.out.println("5 food = 1 miufs / 10 food = 2 miufs, etc");
-
-                int food = in.nextInt();
-
-                livingRoomInstace.feedPet(idx, food);
-                break;
-            }
-            case 3: {
-                System.out.println("Insert the index of the pet:");
-
-                int idx = in.nextInt();
-
-                livingRoomInstace.petAnimal(idx);
-                break;
-            }
-            case 4: {
-                System.out.println("Insert the index of the doggo:");
-
-                int idx = in.nextInt();
-
-                livingRoomInstace.playWithDoggo(idx);
-                break;
-            }
-            case 5: {
-                livingRoomInstace.printMiufs();
-                break;
-            }
-            case 6: {
-                petShopInstance.showPetItems();
-
-                System.out.println("Choose the index of the desired pet:");
-                int idx = in.nextInt();
-
-                try {
-                    petShopInstance.buyPet(idx);
-                    writeProgressToFile();
-                }
-                catch(IndexOutOfBoundsException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
-        }
-
-        textMenu();
-    }
-
-    public static void printPets() {
-        livingRoomInstace.printPets();
     }
 
     public static void initPetShopFromFiles() {
@@ -369,29 +303,28 @@ public class Main extends HttpServlet {
         livingRoomInstace = LivingRoom.getLivingRoomInstance(purchasedPets.toArray(animalArr), currentMiufs);
     }
 
-    public static void writeProgressToFile() {
-        PetsIOHandler ioHandler = new PetsIOHandler();
-        ioHandler.openOut(purchasedPetsFilePath, false);
-
-        ArrayList<Animal> petsArr;
+    synchronized public static void writeProgressToFile() {
         synchronized (livingRoomInstace) {
-            petsArr = livingRoomInstace.getPetsArr();
-        }
+            PetsIOHandler ioHandler = new PetsIOHandler();
+            ioHandler.openOut(purchasedPetsFilePath, false);
 
-        for (int i = 0; i < petsArr.size(); i += 1) {
-            try {
-                ioHandler.writePet(petsArr.get(i));
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
+            ArrayList<Animal> petsArr = livingRoomInstace.getPetsArr();
+
+
+            for (int i = 0; i < petsArr.size(); i++) {
+                try {
+                    ioHandler.writePet(petsArr.get(i));
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-        }
 
-        ioHandler.closeOut();
+            ioHandler.closeOut();
 
-        ioHandler.openOut(ownedMiufsFilePath, false);
-        synchronized (livingRoomInstace) {
+            ioHandler.openOut(ownedMiufsFilePath, false);
             ioHandler.getOutCSVWriter().writeInt(livingRoomInstace.getMiufs(), true);
+
+            ioHandler.closeOut();
         }
-        ioHandler.closeOut();
     }
 }

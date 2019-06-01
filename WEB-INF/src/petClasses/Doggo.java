@@ -1,5 +1,7 @@
 package petClasses;
 
+import RESTClasses.InteractionAnswer;
+
 public class Doggo extends Animal {
     int playfulness;
     boolean bored;
@@ -33,32 +35,34 @@ public class Doggo extends Animal {
 
     public int pet() {
         if (bored) {
-            System.out.println(name + " is bored. You have to entertain him before petting!");
+            refusePettingMessage = name + " is bored. You have to entertain him before petting!";
+            System.out.println(refusePettingMessage);
 
             return 0;
         }
 
+        refusePettingMessage = "";
         return super.pet();
     }
 
-    public boolean playWith() {
+    public InteractionAnswer playWith() {
         if (asleep) {
-            System.out.println(name + " is asleep right now. Cannot play with it");
-            return false;
+            String answer = name + " is asleep right now. Cannot play with it";
+            System.out.println(answer);
+            return new InteractionAnswer(false, answer);
         }
 
+        String answer = name + " is now happy";
         System.out.println("Playing with " + name);
-        System.out.println(name + " is now happy");
+        System.out.println(answer);
 
         bored = false;
         playfulness = 0;
 
-        return true;
+        return new InteractionAnswer(true, answer);
     }
 
     public void checkState() {
-        super.checkState();
-
         if (!asleep && System.currentTimeMillis() - lastNeedsUpdate >= updateNeedsInterval) {
             System.out.println("playfulness = " + playfulness);
             playfulness++;
@@ -68,6 +72,8 @@ public class Doggo extends Animal {
             bored = true;
             System.out.println(name + " is bored! Play with it!");
         }
+
+        super.checkState();
     }
 
     public int getPlayfulness() {

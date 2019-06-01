@@ -40,6 +40,7 @@ let gameObject = {
 	PETSHOP_REST: [],
 	currentMiufs: 0,
 	GUI: null,
+	PetShop: null,
 	handleClick,
 };
 
@@ -84,9 +85,20 @@ function initGame() {
 
 	function initedPets(resolve) {
 		gameObject.RESTService.getAllPets(function(petsArray) {
+			console.log(petsArray);
 			for (let petDetail of petsArray) {
+				let color = localStorage.getItem(petDetail.name + petDetail.id);
+
+				if (color === null) {
+					color = Math.round(Math.random() * (PetItem.COLORS_NO - 1));
+					localStorage.setItem(petDetail.name + petDetail.id, color);
+				}
+				else {
+					color = parseInt(color);
+				}
+
 				gameObject.PETS.push(new Pet(petDetail.name, petDetail.id, petDetail.hungry, petDetail.asleep,
-					petDetail.type, petDetail.hunger, petDetail.sleepiness, petDetail.playfullness));
+					petDetail.type, petDetail.hunger, petDetail.sleepiness, petDetail.playfullness, color));
 			}
 
 			resolve();
@@ -140,6 +152,8 @@ function initGame() {
 		function onResolved() {
 			gameObject.GUI = new GUI();
 			gameObject.GUI.updateMiufs();
+
+			gameObject.PetShop = new PetShop(gameObject.PETSHOP_REST);
 
 			requestAnimationFrame(gameObject.draw);
 		},

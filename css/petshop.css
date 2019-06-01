@@ -1,0 +1,51 @@
+#side-menu {
+    width: 100%;
+}
+
+#change-name {
+    float: left;
+    text-align: center;
+    vertical-align: center;
+
+    display: block;
+    position: relative;
+    height: 100%;
+    width: auto;
+}
+
+#change-name>* {
+    display: inline-block;
+    margin: 1rem;
+}
+
+#shop-window {
+    overflow: auto;
+    position: relative;
+    width: 70%;
+    height: 80%;
+
+    top: 20%;
+    left:15%;
+    right:15%;
+
+    background-color: whitesmoke;
+    font-family: "Minecraft", "04B", serif;
+    color: peru;
+}
+
+.pet-item {
+    position: relative;
+    width: 50%;
+    left: 25%;
+    right: 25%;
+
+    clear: both;
+}
+
+.pet-item>* {
+    display: inline-block;
+}
+
+.pet-item>canvas {
+    float: left;
+}

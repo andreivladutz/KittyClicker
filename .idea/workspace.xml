@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ef6df74d-cd53-4ea0-9539-97b9a5b6030a" name="Default Changelist" comment="" />
+    <list default="true" id="ef6df74d-cd53-4ea0-9539-97b9a5b6030a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/WEB-INF/src/RESTClasses/InteractionAnswer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css/petshop.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/PetShop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/RESTClasses/GameWebService.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/RESTClasses/GameWebService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/petClasses/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/petClasses/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/petClasses/Doggo.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/petClasses/Doggo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/petClasses/Kitty.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/petClasses/Kitty.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/classes/petContainers/LivingRoom.class" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/classes/petContainers/LivingRoom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/src/RESTClasses/GameWebService.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/src/RESTClasses/GameWebService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/src/petClasses/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/src/petClasses/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/src/petClasses/Doggo.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/src/petClasses/Doggo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/src/petClasses/Kitty.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/src/petClasses/Kitty.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WEB-INF/src/petContainers/LivingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/WEB-INF/src/petContainers/LivingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/Pet.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/Pet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/UI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/UI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/utils/RESTService.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/utils/RESTService.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -12,12 +35,12 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="46" />
+            <state relative-caret-position="267">
+              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -25,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/utils/RESTService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1365">
-              <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+            <state relative-caret-position="-974">
+              <caret line="93" column="42" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -34,17 +57,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="60" column="35" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="35" />
+            <state relative-caret-position="90">
+              <caret line="87" column="35" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/PetShop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="142" column="34" selection-start-line="142" selection-start-column="23" selection-end-line="142" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/UI.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1358">
-              <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
+            <state relative-caret-position="752">
+              <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -52,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/Pet.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="241" column="17" selection-start-line="241" selection-start-column="4" selection-end-line="241" selection-end-column="17" />
+            <state relative-caret-position="85">
+              <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
               <folding>
                 <element signature="n#!!block;n#updateFrames#0;n#Pet#0" />
                 <element signature="n#!!block;n#moveOneTile#0;n#Pet#0" />
@@ -63,10 +95,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/petshop.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/petshop.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="522">
+              <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/general.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="182">
-              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+              <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="25" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -77,6 +127,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -93,14 +144,29 @@
       <find>parser</find>
       <find>this.foun</find>
       <find>viewport</find>
-      <find>draw</find>
       <find>update</find>
       <find>handleDown</find>
       <find>compute</find>
       <find>_onAn</find>
       <find>draw = fu</find>
       <find>console.</find>
+      <find>couldNotInter</find>
+      <find>showCouldNot</find>
+      <find>showCould</find>
+      <find>unbindInteractions</find>
+      <find>pushDetails</find>
+      <find>push</find>
+      <find>gameObject.GUI</find>
+      <find>new PetSho</find>
+      <find>updateMiufs</find>
+      <find>LOADED_IMAG</find>
+      <find>draw</find>
+      <find>this.petItems</find>
+      <find>new Pet(</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -110,20 +176,24 @@
         <option value="$PROJECT_DIR$/js/MapClasses/MapRenderer.js" />
         <option value="$PROJECT_DIR$/js/utils/AStar.js" />
         <option value="$PROJECT_DIR$/js/MapClasses/MapInstance.js" />
-        <option value="$PROJECT_DIR$/js/main.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/general.css" />
-        <option value="$PROJECT_DIR$/js/utils/RESTService.js" />
-        <option value="$PROJECT_DIR$/js/Pet.js" />
         <option value="$PROJECT_DIR$/js/UI.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/petshop.html" />
+        <option value="$PROJECT_DIR$/css/petshop.css" />
+        <option value="$PROJECT_DIR$/js/Pet.js" />
+        <option value="$PROJECT_DIR$/js/utils/RESTService.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/PetShop.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="951" />
+    <option name="width" value="978" />
+    <option name="height" value="1039" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -166,9 +236,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js.buildTools.gulp.gulp_package_dir" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/index.html" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -208,24 +280,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1559126817877</updated>
-      <workItem from="1559126825541" duration="51249000" />
+      <workItem from="1559126825541" duration="51543000" />
+      <workItem from="1559332712470" duration="23558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51249000" />
+    <option name="totallyTimeSpent" value="75101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" sideWeight="0.50033045" side_tool="true" weight="0.39943343" />
+      <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -233,6 +302,10 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50033045" side_tool="true" weight="0.39943343" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -331,21 +404,14 @@
     <entry file="file://$PROJECT_DIR$/css/general.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
-          <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="46" />
+          <caret line="23" column="22" lean-forward="true" selection-start-line="23" selection-start-column="22" selection-end-line="25" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Pet.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="241" column="17" selection-start-line="241" selection-start-column="4" selection-end-line="241" selection-end-column="17" />
+        <state relative-caret-position="85">
+          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
           <folding>
             <element signature="n#!!block;n#updateFrames#0;n#Pet#0" />
             <element signature="n#!!block;n#moveOneTile#0;n#Pet#0" />
@@ -353,24 +419,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/utils/RESTService.js">
+    <entry file="file://$PROJECT_DIR$/js/UI.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1365">
-          <caret line="14" column="66" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
+        <state relative-caret-position="752">
+          <caret line="50" column="52" selection-start-line="50" selection-start-column="52" selection-end-line="50" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/petshop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="33" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/petshop.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="41" column="16" selection-start-line="41" selection-start-column="16" selection-end-line="41" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="60" column="35" selection-start-line="60" selection-start-column="9" selection-end-line="60" selection-end-column="35" />
+        <state relative-caret-position="90">
+          <caret line="87" column="35" selection-start-line="87" selection-start-column="35" selection-end-line="87" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/UI.js">
+    <entry file="file://$PROJECT_DIR$/js/utils/RESTService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1358">
-          <caret line="132" column="40" selection-start-line="132" selection-start-column="40" selection-end-line="132" selection-end-column="40" />
+        <state relative-caret-position="-974">
+          <caret line="93" column="42" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/PetShop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="142" column="34" selection-start-line="142" selection-start-column="23" selection-end-line="142" selection-end-column="34" />
         </state>
       </provider>
     </entry>
