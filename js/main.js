@@ -202,19 +202,3 @@ function main() {
 		}
 	});
 }
-
-function testREST() {
-	function test(obj) {
-		console.log(obj);
-	}
-
-	gameObject.RESTService.getAllPets(test);
-	gameObject.RESTService.getPet(test, 0);
-	gameObject.RESTService.buyPet(test, 0);
-	gameObject.RESTService.getPetshop(test);
-	gameObject.RESTService.getPetsConstants(test);
-	gameObject.RESTService.getMiufs(test);
-	gameObject.RESTService.feedPet(test, 0, 5);
-	gameObject.RESTService.petAnimal(test, 0);
-	gameObject.RESTService.playWithPet(test, 0);
-}

@@ -2,6 +2,8 @@ package petContainers;
 
 import ioClasses.CSVWriter;
 import petClasses.Animal;
+import petClasses.Doggo;
+import petClasses.Kitty;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
@@ -50,7 +52,7 @@ public final class PetShop
         livingRoomInstance = livingRoomInst;
     }
 
-    public boolean buyPet(int id) throws IndexOutOfBoundsException {
+    synchronized public boolean buyPet(int id) throws IndexOutOfBoundsException {
         if (id < 0 || id >= petItems.length) {
             throw new IndexOutOfBoundsException("Id not valid");
         }
@@ -75,7 +77,17 @@ public final class PetShop
             out.close();
         }
 
-        livingRoomInstance.movePetIn(petItem.initedPet);
+        Animal initedPet = petItem.getPet(), petCopy = null;
+
+        if (initedPet instanceof Kitty) {
+            petCopy = new Kitty(initedPet.getName(), initedPet.getMiufs());
+        }
+        else if (initedPet instanceof Doggo) {
+            petCopy = new Doggo(initedPet.getName(), initedPet.getMiufs());
+        }
+
+        livingRoomInstance.movePetIn(petCopy);
+
         return true;
     }
 

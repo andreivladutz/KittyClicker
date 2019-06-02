@@ -43,15 +43,11 @@ public abstract class Animal {
 
     public void feed(int food) {
         hunger = Math.max(hunger - food, 0);
-
-        System.out.println(name + " was fed. Hunger levels = " + hunger);
     }
 
     public void wakeUp() {
         sleepiness = 0;
         asleep = false;
-
-        System.out.println(name + " woke up");
     }
 
     /*
@@ -63,8 +59,6 @@ public abstract class Animal {
         if (!asleep && sleepiness >= sleepinessThreshold) {
             fallenAsleepTime = System.currentTimeMillis();
             asleep = true;
-
-            System.out.println(name + " fell asleep");
         }
 
         else if (asleep && System.currentTimeMillis() -  fallenAsleepTime >= sleepTotalTime) {
@@ -73,10 +67,6 @@ public abstract class Animal {
 
         if (!asleep && System.currentTimeMillis() - lastNeedsUpdate >= updateNeedsInterval) {
             lastNeedsUpdate = System.currentTimeMillis();
-
-            System.out.println("UPDATE NEEDS FOR " + name);
-            System.out.println("sleepiness = " + sleepiness);
-            System.out.println("hunger = " + hunger);
 
             sleepiness++;
             hunger++;
@@ -90,14 +80,12 @@ public abstract class Animal {
     public int pet() {
         if (asleep) {
             refusePettingMessage = name + " is asleep! You cannot pet it right now.";
-            System.out.println(refusePettingMessage);
 
             return 0;
         }
 
         if (hunger > 0) {
             refusePettingMessage = name + " is hungry! Feed it first!";
-            System.out.println(refusePettingMessage);
 
             return 0;
         }
@@ -143,7 +131,6 @@ public abstract class Animal {
     }
 
     public void setName(String name) {
-        System.out.println("RENAMING " + id + " TO " + name);
         this.name = name;
     }
 

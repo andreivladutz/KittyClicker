@@ -131,8 +131,6 @@ class PetShop {
 
 		petName = this.inputName.value;
 
-		console.log("BUYING PET WITH ID = " + selectedPet.id);
-
 		gameObject.RESTService.buyPet((function(response) {
 			if (response.ok) {
 				this.handleBoughtPet(selectedPet.color, petName);
@@ -144,8 +142,6 @@ class PetShop {
 	}
 
 	handleBoughtPet(boughtPetColor, boughtPetName) {
-		console.log("BOUGHT " + boughtPetName + " WITH COLOR = " + boughtPetColor);
-
 		// first rename the new bought pet, after that add it to the array of pets
 		gameObject.RESTService.renamePet(function() {
 			// after renaming get the pet

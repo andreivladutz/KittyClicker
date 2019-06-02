@@ -32,7 +32,7 @@ _p._addItem = function(obj, onLoadedSetter, onFailSetter, beginLoading) {
 }
 
 _p.updateProgress = function(loadedItems, totalItemsToLoad) {
-	console.log ("Loaded " + loadedItems + " out of " + totalItemsToLoad);
+	//console.log ("Loaded " + loadedItems + " out of " + totalItemsToLoad);
 }
 
 /*

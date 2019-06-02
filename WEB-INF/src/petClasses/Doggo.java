@@ -29,14 +29,12 @@ public class Doggo extends Animal {
 
     @Override
     public int receiveMiufs() {
-        System.out.println("Petting " + name);
         return miufs;
     }
 
     public int pet() {
         if (bored) {
             refusePettingMessage = name + " is bored. You have to entertain him before petting!";
-            System.out.println(refusePettingMessage);
 
             return 0;
         }
@@ -48,13 +46,10 @@ public class Doggo extends Animal {
     public InteractionAnswer playWith() {
         if (asleep) {
             String answer = name + " is asleep right now. Cannot play with it";
-            System.out.println(answer);
             return new InteractionAnswer(false, answer);
         }
 
         String answer = name + " is now happy";
-        System.out.println("Playing with " + name);
-        System.out.println(answer);
 
         bored = false;
         playfulness = 0;
@@ -64,13 +59,11 @@ public class Doggo extends Animal {
 
     public void checkState() {
         if (!asleep && System.currentTimeMillis() - lastNeedsUpdate >= updateNeedsInterval) {
-            System.out.println("playfulness = " + playfulness);
             playfulness++;
         }
 
         if (!bored &&  !asleep && playfulness >= playfulnessThreshold) {
             bored = true;
-            System.out.println(name + " is bored! Play with it!");
         }
 
         super.checkState();

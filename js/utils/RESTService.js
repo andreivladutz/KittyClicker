@@ -91,7 +91,6 @@ class RESTService {
 	}
 
 	renamePet(callback, petId, name) {
-		console.log("RENAMING petID = " + petId + " to " + name);
 		let renamePetRequestObj = copyObject(RESTService.LINKS[RESTService.RENAME_PET]);
 		renamePetRequestObj.url = "pets/" + petId + renamePetRequestObj.url + name;
 

@@ -8,8 +8,8 @@
 
     <!-- THE OLD MAIN CLASS CONVERTED TO A SERVLET -->
     <servlet>
-        <servlet-name>Main</servlet-name>
-        <servlet-class>Main</servlet-class>
+        <servlet-name>mainPackage.Main</servlet-name>
+        <servlet-class>mainPackage.Main</servlet-class>
     </servlet>
 
     <!-- THE REST SERVLET -->
@@ -28,7 +28,7 @@
     </servlet-mapping>
 
     <servlet-mapping>
-        <servlet-name>Main</servlet-name>
+        <servlet-name>mainPackage.Main</servlet-name>
         <url-pattern>/init</url-pattern>
     </servlet-mapping>
 </web-app>

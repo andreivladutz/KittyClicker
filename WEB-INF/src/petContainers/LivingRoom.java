@@ -1,6 +1,7 @@
 package petContainers;
 
 import RESTClasses.InteractionAnswer;
+import mainPackage.Main;
 import petClasses.*;
 import java.util.ArrayList;
 
@@ -21,7 +22,8 @@ public final class LivingRoom {
 
     public static LivingRoom getLivingRoomInstance() {
         if (instance == null) {
-            System.out.println("YOU ARE TRYING TO ACCESS AN UNINITIALISED LIVING ROOM");
+            System.out.println("YOU ARE TRYING TO ACCESS AN UNINITIALISED LIVING ROOM. INITIALISING GAME FIRST:");
+            Main.initialise();
         }
         return instance;
     }
@@ -118,7 +120,6 @@ public final class LivingRoom {
 
         if (miufs > 0) {
             String answer = petRef.getName() + " gave you " + miufs + " miufs";
-            System.out.println(answer);
             ownerWallet.receiveMiufs(miufs);
 
             printMiufs();
@@ -137,7 +138,6 @@ public final class LivingRoom {
 
         if (!(pet instanceof Doggo)) {
             String answer = "The pet you chose is not a doggo!";
-            System.out.println(answer);
             return new InteractionAnswer(false, answer);
         }
 

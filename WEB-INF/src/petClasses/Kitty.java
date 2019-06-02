@@ -25,11 +25,9 @@ public class Kitty extends Animal {
 
         if (mood > 0.5) {
             refusePettingMessage = name + " is not in the mood to be pet!";
-            System.out.println(refusePettingMessage);
             return 0;
         }
         else {
-            System.out.println("Petting " + name);
             refusePettingMessage = "";
             return miufs;
         }

@@ -1,3 +1,5 @@
+package mainPackage;
+
 import petClasses.*;
 import petContainers.*;
 import ioClasses.*;
@@ -12,7 +14,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.Scanner;
 import java.io.File;
 
 public class Main extends HttpServlet {
@@ -52,16 +53,10 @@ public class Main extends HttpServlet {
     // don't let two threads init the game if they are launched at the same time -> synchronized
     @Override
     synchronized public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (GAME_INITED) {
-            returnInitSuccess(response);
-            return;
-        }
         // init the game and send back an ok
         initialise();
 
-        GAME_INITED = true;
         returnInitSuccess(response);
-        return;
     }
 
     public void returnInitSuccess(HttpServletResponse response) throws IOException {
@@ -73,7 +68,13 @@ public class Main extends HttpServlet {
     }
 
     synchronized public static void initialise() {
+        if (GAME_INITED) {
+            return;
+        }
+
         System.out.println("Initialised game state");
+
+        GAME_INITED = true;
 
         // if the data folder doesn't exist, then create it
         File f = new File(basePath);
